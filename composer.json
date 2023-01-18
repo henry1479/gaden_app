@@ -1,0 +1,24 @@
+{
+    "name": "garden-app/app",
+    "autoload": {
+        "psr-4": {
+            "GardenApp\\App\\": "src/"
+        }
+    },
+
+    "autoload-dev": {
+        "psr-4": {
+            "Tests\\": "Tests/"
+        }
+    },
+
+    "authors": [
+        {
+            "name": "henry1479",
+            "email": "fokys.81@mail.ru"
+        }
+    ],
+    "require-dev": {
+        "phpunit/phpunit": "^9.5"
+    }
+}
