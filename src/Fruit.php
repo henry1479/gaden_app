@@ -10,10 +10,10 @@ class Fruit
 
     private int $weight;
 
-    public function __construct(string $type, int $weight)
+    public function __construct(string $type)
     {
         $this->type = $type;
-        $this->weight = $weight;
+        $this->setWeight();
     }
 
 
@@ -32,9 +32,13 @@ class Fruit
         return $this->weight;
     }
 
-    public function setWeight($weight)
+    public function setWeight()
     {
-        $this->weight = $weight;
+        if($this->type == "apple") {
+            $this->weight = rand(150,180);
+        } else if($this->type == "pear") {
+            $this->weight =  rand(140,170);
+        }
     }
 
 }

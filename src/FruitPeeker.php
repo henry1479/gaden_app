@@ -43,17 +43,26 @@ class FruitPeeker {
         
         $countPear = 0;
         $countApple = 0;
+
+        $weightPear = 0;
+        $weightApple = 0;
         
         foreach($this->container as $fruit) {
             if($fruit->getType() == "pear"){
                 $countPear += 1;
+                $weightPear += $fruit->getWeight();
             } else if($fruit->getType() == "apple") {
                 $countApple += 1;
+                $weightApple += $fruit->getWeight();
+
             }
         }
 
-        echo("Apples: $countApple \n" );
-        echo("Pears: $countPear \n");
+        $resultWeightPear = $weightPear / 1000;
+        $resultWeightApple = $weightApple / 1000;
+
+        echo("Apples: $countApple. Sum weight of apples is $resultWeightApple kg \n" );
+        echo("Pears: $countPear. Sum weight of pears is $resultWeightPear kg \n");
         
     }
 }

@@ -7,13 +7,15 @@ use GardenApp\App\GardenTree;
 
 class Garden {
 
+    // const APPLE_TREE = 10;
+    // const PEAR_TREE = 15;
     private array $treeRepository = [];
-
+    
 
     public function __construct()
     {
-        $this->addTreeToGarden(2,"apple");
-        $this->addTreeToGarden(1,"pear");
+        $this->addTreeToGarden(10,"apple");
+        $this->addTreeToGarden(15,"pear");
     }
 
 
