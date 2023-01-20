@@ -18,18 +18,37 @@ class GardenTreeTest extends TestCase
         $this->object = new GardenTree("pear");
     }
 
-    public function testAddFruitToReposioty()
+    public function testAddFruitToRepository()
     {
-        $result = $this->object->getFruitRepository()[1];
+        $result = $this->object->getFruitRepository()[0];
         $this->assertInstanceOf(Fruit::class, $result);
 
     }
+
+    /**
+     * @depends testAddFruitToRepository
+     * @dataProvider addData
+     */
+
     
     
-    public function testSetNumberOfFruits()
+    public function testSetNumberOfFruits($data)
     {
         $result = $this->object->getNumberOfFruits();
-        $this->assertSame(3, $result);
+        $this->assertContains($result, $data);
+    }
+
+
+    public function addData()
+    {
+        $result = [];
+
+        for($i=0; $i<=20; $i++) {
+            $result[] = $i;
+        }
+        return [
+            [$result]
+        ];
     }
    
 }

@@ -32,7 +32,7 @@ class GardenTree
             $this->fruitRepository[$i] = new Fruit($this->type);
         }
 
-        echo "Fill apple repository!\n";
+        echo "Fill $this->type repository!\n";
         
     }
 
