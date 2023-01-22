@@ -9,9 +9,10 @@ use GardenApp\App\Garden;
 
 class FruitPeeker {
 
-    public bool $isWork = true;  
 
-    public array $container = [];
+    private array $container = [];
+
+    private $data = [];
 
     public function __construct()
     {
@@ -34,12 +35,14 @@ class FruitPeeker {
 
         
         $this->countFruits();
+        $this->showResult();
 
     }
 
   
 
     private function countFruits() {
+
         
         $countPear = 0;
         $countApple = 0;
@@ -60,9 +63,29 @@ class FruitPeeker {
 
         $resultWeightPear = $weightPear / 1000;
         $resultWeightApple = $weightApple / 1000;
+        $this->data[] = $countApple;
+        $this->data[] = $countPear;
+        $this->data[] = $resultWeightApple;
+        $this->data[] = $resultWeightPear;
 
-        echo("Apples: $countApple. Sum weight of apples is $resultWeightApple kg \n" );
-        echo("Pears: $countPear. Sum weight of pears is $resultWeightPear kg \n");
+       
+    }
+
+
+    public function getPeekerContainer()
+    {
+        return $this->container;
+    }
+
+    private function showResult()
+    {
+        echo("Apples: ". $this->data[0]. " Sum weight of apples is " .$this->data[2] . " kg \n" );
+        echo("Pears: " . $this->data[1] . ". Sum weight of pears is " . $this->data[3] . " kg \n");
         
     }
+
+    public function getData() {
+        return $this->data;
+    }
+    
 }
